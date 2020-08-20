@@ -1,0 +1,1032 @@
+* {
+  margin: 0;
+
+  padding: 0;
+}
+.select2 {
+  width: 100% !important;
+}
+/* Body */
+
+html,
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(../img/2.jpg) no-repeat center center fixed;
+
+  background-size: cover;
+
+  font-family: "Balsamiq Sans", cursive;
+
+  font-size: 14px;
+
+  box-sizing: border-box;
+
+  width: 100%;
+
+  height: 100%;
+}
+
+/* a */
+
+a {
+  outline: none;
+
+  text-decoration: none;
+}
+
+/* Button */
+
+button {
+  background-color: none;
+
+  border: none;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+/* Container */
+
+.container {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+/* Header */
+
+.header {
+  width: 100%;
+
+  background-color: #3a2548;
+
+  padding: 15px 0;
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  right: 0;
+
+  z-index: 1000;
+}
+/* Find */
+.find__text {
+  font-size: 30px;
+  color: white;
+}
+#find {
+  font-size: 20px;
+}
+
+.header--fixed {
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  right: 0;
+
+  width: 100%;
+
+  padding: 10px 0;
+
+  background: #3a2548;
+
+  animation: show_header 0.3s;
+
+  box-shadow: 0 0 10px black;
+
+  z-index: 1;
+}
+
+@keyframes show_header {
+  0% {
+    opacity: 0;
+
+    top: -70px;
+  }
+
+  100% {
+    opacity: 1;
+
+    top: 0;
+  }
+}
+
+.header__inner {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.header__logo {
+  font-size: 35px;
+
+  color: #fff;
+
+  padding-left: 20px;
+
+  font-weight: 400;
+}
+
+/* Nav */
+
+.navbar {
+  padding-right: 5px;
+}
+
+.nav-toggle {
+  display: none;
+
+  font-size: 30px;
+
+  cursor: pointer;
+
+  color: white;
+
+  background: none;
+
+  margin-right: 25px;
+}
+
+.nav-toggle:focus {
+  outline: 0;
+}
+
+.navbar__link {
+  color: #fff;
+
+  font-size: 20px;
+
+  margin-left: 10px;
+
+  padding: 5px 15px;
+
+  border-radius: 10px;
+
+  transition: background 0.1s linear;
+}
+
+.navbar__link:hover {
+  background-color: #e4ab11;
+}
+
+.navbar__link:first-child {
+  margin: 5px 15px;
+}
+
+/* Timer */
+
+.timer {
+  width: 100%;
+}
+
+.timer__inner {
+  display: flex;
+
+  justify-content: space-evenly;
+
+  padding: 125px 0 25px;
+
+  color: #fff;
+
+  font-size: 50px;
+}
+
+/* Main */
+
+.main {
+  padding: 25px 0;
+
+  text-align: center;
+
+  min-height: 100vh;
+}
+
+.main__title {
+  color: #fff;
+  padding: 0 0 15px;
+  font-size: 50px;
+}
+
+.main__container {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  margin: 25px 0 0;
+}
+
+.main__number {
+  font-size: 25px;
+
+  font-weight: 700;
+}
+
+/* Find */
+
+.find__text {
+  font-size: 30px;
+
+  color: white;
+}
+
+#find {
+  font-size: 20px;
+}
+
+/* Error */
+
+.error {
+  margin: 200px 0;
+
+  height: 100vh;
+
+  text-align: center;
+}
+
+.error__title {
+  padding-top: 200px;
+
+  color: #fff;
+
+  font-size: 70px;
+
+  font-weight: 700;
+}
+
+/* Student */
+
+.student {
+  width: 100%;
+  padding-top: 125px;
+  min-height: 100vh;
+}
+
+.student__form {
+  margin: 25px 0;
+}
+
+.sudent__form__select {
+  padding: 5px 10px;
+
+  outline: none;
+
+  border-radius: 5px;
+
+  font-size: 20px;
+}
+
+.student__form__content {
+  width: 50%;
+
+  margin: 25px auto;
+
+  font-size: 20px;
+}
+
+select.sudent__form__select {
+  width: 100%;
+}
+
+.student__form__button {
+  outline: none;
+
+  padding: 7px 25px;
+
+  font-size: 20px;
+
+  border-radius: 10px;
+
+  border: 0;
+}
+
+.student__form__button:hover {
+  cursor: pointer;
+
+  background-color: #20bd12;
+
+  color: #fff;
+}
+
+.student__form__button__container {
+  margin: 25px 0;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+.student__main {
+  width: 100%;
+
+  background-color: #fff;
+
+  opacity: 0.85;
+
+  padding-bottom: 10px;
+
+  margin-bottom: 25px;
+
+  border-radius: 10px;
+}
+
+.student__block__title {
+  padding: 20px 0;
+
+  text-align: center;
+
+  font-size: 40px;
+
+  font-weight: 700;
+
+  font-style: italic;
+}
+
+.student__block__hr {
+  width: 90%;
+
+  height: 2px;
+
+  margin: 0 auto;
+
+  border: 0;
+
+  background-color: #9472ab;
+}
+
+.student__block__day {
+  text-align: center;
+
+  font-size: 35px;
+
+  font-weight: 700;
+
+  font-style: italic;
+}
+
+.student__block {
+  width: 95%;
+
+  margin: 25px auto;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  border: 2px solid #9472ab;
+
+  cursor: default;
+
+  overflow-y: auto;
+}
+
+.student__block__text {
+  margin: 15px 0;
+
+  font-weight: 300;
+
+  font-size: 25px;
+}
+
+.student__block__number {
+  font-weight: 700;
+}
+
+.student--active {
+  background: rgba(57, 20, 175, 0.5);
+}
+
+/* Zamina */
+
+.zamina {
+  width: 100%;
+
+  margin: 50px 0;
+  padding-top: 125px;
+  min-height: 75vh;
+
+  text-align: center;
+}
+
+.zamina__title {
+  color: #fff;
+
+  font-size: 50px;
+
+  margin: 0 0 25px;
+}
+
+.zamina__main {
+  width: 100%;
+
+  background-color: #fff;
+
+  opacity: 0.85;
+
+  text-align: left;
+
+  border-radius: 10px;
+
+  padding: 25px 0;
+}
+
+.zamina__text {
+  display: flex;
+
+  justify-content: space-between;
+
+  font-size: 28px;
+}
+
+.zamina__element {
+  width: 25%;
+
+  text-align: center;
+
+  padding: 25px 0;
+}
+
+.zamina__null {
+  font-size: 70px;
+
+  text-align: center;
+}
+
+.zamina__form {
+  padding: 0 0 25px;
+}
+
+.zamina__form__input {
+  padding: 0 0 0 10px;
+
+  font-size: 25px;
+
+  border-radius: 10px;
+
+  border: 0;
+
+  margin: 0 20px;
+}
+
+.zamina__form__input:focus {
+  outline: none;
+}
+
+.zamina__form__label {
+  color: #fff;
+
+  font-size: 35px;
+}
+
+.zamina__form__box {
+  display: inline-block;
+}
+
+.zamina__form__button {
+  font-size: 25px;
+
+  padding: 5px 10px;
+
+  border-radius: 5px;
+
+  border: 0;
+
+  outline: 0;
+
+  transition: color 0.2s linear, background 0.2s linear;
+}
+
+.zamina__form__button:hover {
+  cursor: pointer;
+
+  background-color: rgb(2, 156, 2);
+
+  color: #fff;
+}
+
+#print {
+  margin-left: 10px;
+}
+
+#print:hover {
+  background-color: #e4ab11;
+}
+
+/* Block */
+
+.block {
+  text-align: left;
+
+  background-color: #fff;
+
+  margin-bottom: 40px;
+
+  padding: 20px 0 20px 0;
+
+  width: 360px;
+
+  height: 450px;
+
+  border-radius: 10px;
+
+  cursor: default;
+
+  overflow-y: auto;
+
+  transition: background 0.1s linear;
+
+  opacity: 0.85;
+}
+
+.block:hover {
+  opacity: 0.95;
+
+  box-shadow: 2px 2px 5px rgb(53, 53, 53);
+}
+
+.block__title {
+  text-align: center;
+
+  font-size: 30px;
+
+  font-weight: 700;
+}
+
+.block__hr {
+  width: 90%;
+
+  margin: 15px auto;
+
+  height: 2px;
+
+  background-color: #9472ab;
+
+  border: 0;
+}
+
+.block__subtitle {
+  font-size: 18px;
+
+  padding: 10px 20px;
+}
+
+/* ScrollBar */
+
+.block::-webkit-scrollbar {
+  width: 8px;
+}
+
+.block::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.block::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+
+  background-color: gray;
+}
+
+/* Footer */
+
+.footer__wrapper {
+  background-color: #3a2548;
+
+  padding: 25px 0;
+
+  width: 100%;
+
+  text-align: center;
+}
+
+.footer__text {
+  color: white;
+
+  font-size: 20px;
+
+  padding: 0 0 0 10px;
+}
+
+/* Media 1100px */
+
+@media screen and (max-width: 1100px) {
+  .main__container {
+    grid-template-columns: repeat(2, 1fr);
+
+    justify-items: center;
+
+    align-items: center;
+  }
+
+  .navbar {
+    padding-right: 10px;
+  }
+
+  .block {
+    width: 500px;
+  }
+
+  .zamina .container {
+    max-width: 1000px;
+  }
+
+  .zamina__text {
+    font-size: 23px;
+  }
+
+  .student .container {
+    max-width: 1000px;
+  }
+
+  .student__form__content {
+    width: 50%;
+  }
+
+  select.sudent__form__select {
+    width: 100%;
+  }
+}
+
+/* Media 1024px */
+
+@media screen and (max-width: 1024px) {
+  .block {
+    width: 450px;
+  }
+}
+
+/* Media 960px */
+
+@media screen and (max-width: 960px) {
+  .block {
+    width: 400px;
+  }
+
+  .zamina .container {
+    max-width: 800px;
+  }
+
+  .zamina__text {
+    font-size: 20px;
+  }
+
+  .timer__inner {
+    font-size: 35px;
+  }
+
+  .zamina__form__label {
+    font-size: 25px;
+  }
+
+  .zamina__form__input {
+    font-size: 20px;
+  }
+
+  .zamina__form__button {
+    font-size: 20px;
+  }
+
+  .zamina__title {
+    font-size: 35px;
+  }
+
+  .student .container {
+    max-width: 800px;
+  }
+
+  .student__block {
+    width: 90%;
+  }
+
+  .student__form__content {
+    width: 60%;
+  }
+
+  select.sudent__form__select {
+    width: 100%;
+  }
+}
+
+/* Media 850px */
+
+@media screen and (max-width: 850px) {
+  .block {
+    width: 360px;
+  }
+
+  .navbar__link {
+    font-size: 16px;
+  }
+}
+
+/* Media 768px */
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 20px 0 10px;
+
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+
+    right: 0;
+
+    box-shadow: 0 0 5px 0 black;
+
+    width: 100%;
+
+    background: #9472ab;
+  }
+
+  .navbar__link {
+    display: block;
+
+    font-size: 22px;
+
+    line-height: 2;
+
+    margin: 0;
+
+    padding: 0 0 0 50px;
+  }
+
+  .navbar__link:first-child {
+    margin: 0;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .navbar.active {
+    display: block;
+  }
+
+  .block {
+    width: 360px;
+  }
+
+  .zamina {
+    margin: 20px 0;
+  }
+
+  .zamina .container {
+    max-width: 600px;
+  }
+
+  .zamina__text {
+    font-size: 15px;
+  }
+
+  .timer__inner {
+    font-size: 30px;
+  }
+
+  .zamina__form__label {
+    font-size: 20px;
+  }
+
+  .zamina__form__input {
+    font-size: 15px;
+  }
+
+  .zamina__form__button {
+    font-size: 15px;
+  }
+
+  .zamina__title {
+    font-size: 30px;
+  }
+
+  .student .container {
+    max-width: 600px;
+  }
+
+  select.sudent__form__select {
+    width: 75%;
+  }
+
+  .student__form__content {
+    width: 75%;
+  }
+
+  select.sudent__form__select {
+    width: 100%;
+  }
+}
+
+/* Media 740px */
+
+@media screen and (max-width: 740px) {
+  .block {
+    width: 300px;
+  }
+
+  .timer__inner {
+    color: #fff;
+
+    font-size: 30px;
+  }
+}
+
+/* Media 615px */
+
+@media screen and (max-width: 615px) {
+  .main__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .block {
+    width: 400px;
+
+    overflow: visible;
+
+    height: auto;
+  }
+
+  .timer__inner {
+    font-size: 30px;
+  }
+}
+
+/* Media 425px */
+
+@media screen and (max-width: 425px) {
+  .timer__inner {
+    display: block;
+
+    padding: 100px 0 25px;
+
+    color: #fff;
+
+    font-size: 50px;
+
+    text-align: center;
+  }
+  .main__title {
+    font-size: 40px;
+  }
+  .timer__day {
+    margin: 0 0 20px 0;
+  }
+
+  .zamina {
+    margin: 0 0 20px;
+  }
+
+  .zamina .container {
+    max-width: 400px;
+  }
+
+  .zamina__text {
+    font-size: 10px;
+  }
+
+  .timer__inner {
+    font-size: 20px;
+  }
+
+  .zamina__form__label {
+    font-size: 15px;
+  }
+
+  .zamina__form__input {
+    font-size: 15px;
+  }
+
+  .zamina__form__button {
+    font-size: 15px;
+  }
+
+  .zamina__title {
+    font-size: 20px;
+  }
+
+  .student .container {
+    max-width: 400px;
+  }
+
+  select.sudent__form__select {
+    width: 100%;
+  }
+
+  .student__block__title {
+    font-size: 30px;
+  }
+
+  .student__block__day {
+    font-size: 25px;
+  }
+
+  .student__block__text {
+    font-size: 15px;
+  }
+
+  .zamina__form__box {
+    display: block;
+
+    margin: 0 auto;
+  }
+
+  #print {
+    margin: 15px 10px 0;
+
+    padding: 5px 25px;
+  }
+  .student__form__button {
+    margin: 15px 10px 0;
+
+    padding: 5px 25px;
+  }
+}
+@media print {
+  .header-left-top,
+  .a-right-bottom,
+  .time-right-bottom {
+    display: none;
+  }
+}
+/* Media 375px */
+
+@media screen and (max-width: 375px) {
+  .block {
+    width: 350px;
+  }
+
+  .timer__inner {
+    font-size: 40px;
+  }
+
+  .main__title {
+    font-size: 40px;
+  }
+
+  .zamina .container {
+    max-width: 365px;
+  }
+
+  .timer__inner {
+    font-size: 15px;
+  }
+
+  .student .container {
+    max-width: 365px;
+  }
+}
+
+/* Media 320px */
+
+@media screen and (max-width: 320px) {
+  .block {
+    width: 300px;
+  }
+
+  .error__title {
+    font-size: 60px;
+  }
+
+  .zamina .container {
+    max-width: 300px;
+  }
+
+  .zamina__text {
+    font-size: 8px;
+  }
+
+  .zamina__form__label {
+    font-size: 10px;
+  }
+
+  .zamina__form__input {
+    font-size: 10px;
+  }
+
+  .zamina__form__button {
+    font-size: 10px;
+  }
+
+  .student .container {
+    max-width: 300px;
+  }
+
+  .student__block__title {
+    padding: 10px 0;
+  }
+
+  .zamina__null {
+    font-size: 50px;
+
+    text-align: center;
+  }
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Студент</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4f83b214c6.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animate.css"/>
+</head>
+
+<body>
+<!--******************** Header Section ********************-->
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <div class="header__logo">Розклад</div>
+            <nav class="navbar" id="nav">
+                <a href="/" class="navbar__link">Головна</a>
+                <a href="student" class="navbar__link">Студент</a>
+                <a href="vukladach" class="navbar__link">Викладач</a>
+                <a href="zaminu" class="navbar__link">Заміни</a>
+            </nav>
+            <button class="nav-toggle" id="nav-toggle" type="button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+<!--******************** Main Section ********************-->
+<section class="student">
+    <div class="container wow fadeIn">
+        <form class="student__form" method="POST">
+            <div class="student__form__container">
+                <div class="student__form__content">
+                    <select class="sudent__form__select" name="viddilenya" size="1" id="viddilenya"
+                            data-toggle="select">
+                        <option selected disabled value="default" style='display:none;'>Відділення</option>
+                        {{{load}}}
+                    </select>
+                </div>
+                <div class="student__form__content">
+                    <select class="sudent__form__select" name="group" size="1" id="group" data-toggle="select">
+                        <option selected disabled value="default" style='display:none;'>Спеціальність</option>
+                    </select>
+                </div>
+                <div class="student__form__content">
+                    <select class="sudent__form__select" name="kurs" size="1" id="kurs" data-toggle="select">
+                        <option selected disabled value="default" style='display:none;'>Група</option>
+                    </select>
+                </div>
+            </div>
+            <div class="student__form__button__container">
+                <input id="student" class="student__form__button" type="submit" disabled value="Переглянути">
+                <button id="print" class="student__form__button" disabled type="button">Друк</button>
+            </div>
+        </form>
+        {{{kurs}}}
+</section>
+<!--******************** Footer Section ********************-->
+<footer class="footer__wrapper">
+    <div class="container">
+        <span class="footer__text">&copy 2020 Andrew Mislyuk & Vadim Lepishko RPZ 16-1/9</span>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script src="js/modal.js"></script>
+<script>
+    let check = true;
+    let Select2 = (function () {
+        let $select = $('[data-toggle="select"]');
+
+        function init($this) {
+            let options = {theme: "classic"};
+            $this.select2(options);
+        }
+
+        if ($select.length) {
+            $select.each(function () {
+                init($(this));
+            });
+        }
+    })();
+    $("#viddilenya").change(function () {
+        $.ajax({
+            url: "/viddilenya",
+            dataType: "json",
+            method: "POST",
+            data: {idVid: document.getElementById("viddilenya").value},
+            success: function (data) {
+                $('#group').empty();
+                document.getElementById("group").innerHTML = '<option selected disabled value="default" style="display:none;">Спеціальність</option>';
+                for (i of data) {
+                    document.getElementById("group").innerHTML += i;
+                }
+                if ("{{group}}".length > 0 && check) {
+                    $("#group").val("{{group}}").change();
+                }
+                $.ajax({
+                    url: "/group",
+                    dataType: "json",
+                    method: "POST",
+                    data: {idGroup: document.getElementById("group").value},
+                    success: function (data) {
+                        $('#kurs').empty();
+                        document.getElementById("kurs").innerHTML = "<option selected disabled value='default' style='display:none;'>Група</option>";
+                        for (i of data) {
+                            document.getElementById("kurs").innerHTML += i;
+                        }
+                        if ("{{kur}}".length > 0 && check) {
+                            $("#kurs").val("{{kur}}").change();
+                            check = false;
+                        }
+                    }
+                });
+            }
+        });
+    });
+    $("#group").change(function () {
+        $.ajax({
+            url: "/group",
+            dataType: "json",
+            method: "POST",
+            data: {idGroup: document.getElementById("group").value},
+            success: function (data) {
+                $('#kurs').empty();
+                document.getElementById("kurs").innerHTML = "<option selected disabled value='default' style='display:none;'>Група</option>";
+                for (i of data) {
+                    document.getElementById("kurs").innerHTML += i;
+                }
+            }
+        });
+    });
+    $("#kurs").change(function () {
+        $('#student').removeAttr('disabled');
+    });
+    if ($("div").is(".student__main")) {
+        $('#print').removeAttr('disabled');
+    }
+    $("#print").on("click", function () {
+        swal("Зачекайте, відбувається процес побудови розкладу до друку!");
+        $.ajax({
+            url: "/printStudent",
+            method: "POST",
+            success: function (data) {
+                w = window.open();
+                w.document.write(data);
+                w.print();
+            }
+        });
+    });
+    if ("{{viddilenya}}".length > 0)
+        $("#viddilenya").val("{{viddilenya}}").change();
+
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+<script src="js/wow.js"></script>
+<script>
+    new WOW().init();
+</script>
+</html>

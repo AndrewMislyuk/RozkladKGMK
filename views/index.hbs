@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Головна</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4f83b214c6.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animate.css"/>
+</head>
+<body>
+<!--******************** Header Section ********************-->
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <div class="header__logo">Розклад</div>
+            <nav class="navbar" id="nav">
+                <a href="/" class="navbar__link">Головна</a>
+                <a href="student" class="navbar__link">Студент</a>
+                <a href="vukladach" class="navbar__link">Викладач</a>
+                <a href="zaminu" class="navbar__link">Заміни</a>
+            </nav>
+            <button class="nav-toggle" id="nav-toggle" type="button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+<!--******************** Timer Section ********************-->
+<div class="timer">
+    <div class="container wow fadeIn" data-wow-delay="1s">
+        <div class="timer__inner">
+            <h1 class="timer__day">{{day}}</h1>
+            <h1 class="timer__time"></h1>
+        </div>
+    </div>
+</div>
+<!--******************** Main Section ********************-->
+<section class="main">
+    <div class="container">
+        <h2 class="main__title wow fadeIn">Розклад занять</h2>
+        <label for="find" class="wow fadeIn find__text">Пошук:</label>
+        <input type="text" class=" wow fadeIn" name="find" id="find"/>
+        <div class="main__container">
+            {{{lessons}}}
+        </div>
+    </div>
+</section>
+<!--******************** Footer Section ********************-->
+<footer class="footer__wrapper">
+    <div class="container">
+        <span class="footer__text">&copy  2020 Andrew Mislyuk & Vadim Lepishko RPZ 16-1/9</span>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/modal.js"></script>
+<script>
+    let timeNode = document.querySelector('.timer__time');
+
+    function getCurrentTimeString() {
+        return new Date().toTimeString().replace(/ .*/, '');
+    }
+
+    setInterval(
+            () => timeNode.innerHTML = getCurrentTimeString(),
+            1000
+    );
+    $("#find").on('input', function () {
+        let finder = $("#find").val().trim().toLowerCase();
+        if (finder.length > 0) {
+            for (let i = 1; i < 100; i++) {
+                let name = document.getElementById(i).innerHTML.toLowerCase();
+                if (!name.includes(finder)) {
+                    document.getElementById(i).parentNode.style.display = 'none';
+                } else {
+                    document.getElementById(i).parentNode.style.display = 'block';
+                }
+            }
+        }
+        if (finder.length == 0) {
+            for (let i = 1; i < 100; i++) {
+                document.getElementById(i).parentNode.style.display = 'block';
+            }
+        }
+    });
+</script>
+<script src="js/wow.js"></script>
+<script>
+     new WOW().init();
+</script>
+</body>
+</html>

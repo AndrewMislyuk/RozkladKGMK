@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Заміни</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4f83b214c6.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animate.css"/>
+</head>
+
+<body>
+<!--******************** Header Section ********************-->
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <div class="header__logo">Розклад</div>
+            <nav class="navbar" id="nav">
+                <a href="/" class="navbar__link">Головна</a>
+                <a href="student" class="navbar__link">Студент</a>
+                <a href="vukladach" class="navbar__link">Викладач</a>
+                <a href="zaminu" class="navbar__link">Заміни</a>
+            </nav>
+            <button class="nav-toggle" id="nav-toggle" type="button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+<!--******************** Zamina Section ********************-->
+<section class="zamina">
+    <div class="container wow fadeIn">
+        <form method="POST" class="zamina__form">
+            <label for="date" class="zamina__form__label">Дата:</label>
+            <input type="date" class="zamina__form__input" id="date" name="date" value="{{date}}">
+            <div class="zamina__form__box">
+                <input type="submit" class="zamina__form__button" value="Переглянути">
+                <button type="button" id="print" class="zamina__form__button">Друк</button>
+            </div>
+        </form>
+        <div class="zamina__title">Заміни</div>
+        {{{zamina}}}
+    </div>
+</section>
+<!--******************** Footer Section ********************-->
+<footer class="footer__wrapper">
+    <div class="container">
+        <span class="footer__text">&copy 2020 Andrew Mislyuk & Vadim Lepishko RPZ 16-1/9</span>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/modal.js"></script>
+<script>
+    $("#print").on("click", function () {
+        swal("Зачекайте, відбувається процес побудови розкладу до друку!");
+        $.ajax({
+            url: "/printZamina",
+            method: "POST",
+            success: function (data) {
+                w = window.open();
+                w.document.write(data);
+                w.print();
+            }
+        });
+    });
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="js/wow.js"></script>
+<script>
+    new WOW().init();
+</script>
+</body>
+</html>
